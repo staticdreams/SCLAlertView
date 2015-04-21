@@ -1268,20 +1268,20 @@ NSTimer *durationTimer;
     frame.origin.y = -self.backgroundView.frame.size.height;
     self.view.frame = frame;
     
-    [UIView animateWithDuration:0.3f animations:^{
-        self.backgroundView.alpha = _backgroundOpacity;
-        
-        //To Frame
-        CGRect frame = self.backgroundView.frame;
-        frame.origin.y = 0.0f;
-        self.view.frame = frame;
-        
-        self.view.alpha = 1.0f;
-    } completion:^(BOOL completed) {
-        [UIView animateWithDuration:0.2f animations:^{
-            self.view.center = _backgroundView.center;
-        }];
-    }];
+	[UIView animateWithDuration:0.5f delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:10.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
+		self.backgroundView.alpha = _backgroundOpacity;
+		
+		//To Frame
+		CGRect frame = self.backgroundView.frame;
+		frame.origin.y = 0.0f;
+		self.view.frame = frame;
+		
+		self.view.alpha = 1.0f;
+	} completion: ^(BOOL completed) {
+		[UIView animateWithDuration:0.2f animations:^{
+			self.view.center = _backgroundView.center;
+		}];
+	}];
 }
 
 - (void)slideInFromBottom
